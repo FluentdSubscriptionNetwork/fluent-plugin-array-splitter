@@ -7,24 +7,28 @@ module Fluent
     class ArraySplitterFilter < Fluent::Plugin::Filter
       Fluent::Plugin.register_filter("array_splitter", self)
 
+      desc 'The field name to split and expand array values'
+      config_param :array_key, :string, default: 'message'
+
       def configure(conf)
         super
+        raise Fluent::ConfigError, "'array_key' parameter is required" unless conf.has_key?('array_key')
         log.info "Configuring Array Splitter Filter"
       end
 
       def filter_stream(tag, es)
         new_es = Fluent::MultiEventStream.new
         es.each do |time, record|
-          if record['message'].is_a?(Array)
-            record['message'].each do |value|
+          if record[@array_key].is_a?(Array)
+            record[@array_key].each do |value|
               new_record = record.dup
-              new_record.delete('message')
+              new_record.delete(@array_key)
               if value.is_a?(Hash)
                 value.each do |k, v|
-                  new_record[k] = v 
+                  new_record[k] = v
                 end
               else
-                new_record['message'] = value
+                new_record[@array_key] = value
               end
               new_es.add(time, new_record)
             end
