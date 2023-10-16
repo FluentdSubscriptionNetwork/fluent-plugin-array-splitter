@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.authors = ["pcoffmanjr"]
   spec.email   = ["pcoffman@ctc-america.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = ""
+  spec.summary       = %q{A Fluentd plugin to split array values into separate records.}
+  spec.description   = %q{This Fluentd plugin takes array values from a specified field and creates separate records for each array element.}
+  spec.homepage      = "https://github.com/paulcoffmanjr/fluent-plugin-array-splitter"
+  spec.license       = "MIT"
 
   test_files, files  = `git ls-files -z`.split("\x0").partition do |f|
     f.match(%r{^(test|spec|features)/})
