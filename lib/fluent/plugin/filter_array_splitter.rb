@@ -18,17 +18,15 @@ module Fluent
           if record['message'].is_a?(Array)
             record['message'].each do |value|
               new_record = record.dup
-              new_record['message'] = value
-              new_es.add(time, new_record)
-            end
-          elsif record['target_field'].is_a?(Array)
-            record['target_field'].each do |hash|
-              hash.each do |k, v|
-                new_record = record.dup
-                new_record.delete('target_field')
-                new_record[k] = v
-                new_es.add(time, new_record)
+              new_record.delete('message')
+              if value.is_a?(Hash)
+                value.each do |k, v|
+                  new_record[k] = v 
+                end
+              else
+                new_record['message'] = value
               end
+              new_es.add(time, new_record)
             end
           else
             new_es.add(time, record)
