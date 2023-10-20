@@ -30,7 +30,7 @@ $ bundle
 
 ### Parameters
 
-- `array_key`: The field name to split and expand array values (default: 'message').
+- `array_key`: The field name to split and expand array values (default: "message").
 - `key_name`: The field name to rename the key of a single array element (default: null).
 
 ### Example Configuration
