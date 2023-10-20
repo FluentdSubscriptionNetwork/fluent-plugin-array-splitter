@@ -45,7 +45,7 @@ $ bundle
 
 ## Usage
 
-With the above configuration, an input like {"message": ["value1", "value2"]} will result in two records:
+With the above configuration, an input like `{"message": ["value1", "value2"]}` will result in two records:
 
 ```
 {"new_key": "value1"}
