@@ -1,8 +1,7 @@
 # fluent-plugin-array-splitter
 
-
 ## Overview
-This [Fluentd](https://fluentd.org/) filter plugin enables splitting and expanding array values within log records. 
+This [Fluentd](https://fluentd.org/) filter plugin allows you to split array values within json formatted log records.
 
 ## Installation
 
@@ -30,8 +29,10 @@ $ bundle
 
 ### Parameters
 
-- `array_key`: The field name to split and expand array values (default: "message").
-- `key_name`: The field name to rename the key of a single array element (default: null).
+|parameter|type|description|default|
+|---|---|---|---|
+|array_key|string (required)|The target field name to split array values||
+|key_name|string (optional)|The field name to rename the key of a single array element|nil|
 
 ### Example Configuration
 
@@ -45,15 +46,29 @@ $ bundle
 
 ## Usage
 
-With the above configuration, an input like `{"message": ["value1", "value2"]}` will result in two records:
+With the above configuration, an input like:
+```
+{"message": ["value1", "value2"]}
+```
 
+will result in two records:
 ```
 {"new_key": "value1"}
 {"new_key": "value2"}
+```
+
+If you have an input like:
+```
+{"message": [{"key1": "value1"}, {"key2": "value2"}]}
+```
+will result as follows:
+```
+{"key1": "value1"}
+{"key2": "value2"}
 ```
 
 ## Copyright
 
 * Copyright(c) 2023- pcoffmanjr
 * License
-  * 
+  * MIT License
