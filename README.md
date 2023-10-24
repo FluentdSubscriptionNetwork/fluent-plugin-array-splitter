@@ -71,4 +71,4 @@ will result as follows:
 
 * Copyright(c) 2023- pcoffmanjr
 * License
-  * MIT License
+  * Apache License, Version 2.0
