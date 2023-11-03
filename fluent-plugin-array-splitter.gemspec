@@ -3,13 +3,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name    = "fluent-plugin-array-splitter"
-  spec.version = "0.1.4"
+  spec.version = "0.1.5"
   spec.authors = ["pcoffmanjr"]
   spec.email   = ["pcoffman@ctc-america.com"]
 
   spec.summary       = %q{A Fluentd plugin to split array values into separate records.}
   spec.description   = %q{This Fluentd plugin takes array values from a specified field and creates separate records for each array element.}
-  spec.homepage      = "https://github.com/paulcoffmanjr/fluent-plugin-array-splitter"
+  spec.homepage      = "https://github.com/FluentdSubscriptionNetwork/fluent-plugin-array-splitter"
   spec.license       = "Apache-2.0"
 
   test_files, files  = `git ls-files -z`.split("\x0").partition do |f|
