@@ -1,7 +1,7 @@
 # fluent-plugin-array-splitter
 
 ## Overview
-This [Fluentd](https://fluentd.org/) filter plugin allows you to split array values within json formatted log records.
+This [Fluentd](https://www.fluentd.org/) filter plugin allows you to split array values within json formatted log records.
 
 ## Installation
 
